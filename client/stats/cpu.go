@@ -54,7 +54,7 @@ func (c *CpuStats) TicksConsumed(percent float64) float64 {
 // MHzConsumed calculates the total MHz consumed by the process across all CPU
 // cores
 func (c *CpuStats) MHzConsumed(percent float64) float64 {
-	return (percent / 100) * shelpers.CPUMHzTotal()
+	return (percent / 100) * shelpers.CPUMHzTotal() / float64(c.totalCpus)
 }
 
 func (c *CpuStats) calculatePercent(t1, t2 float64, timeDelta int64) float64 {
